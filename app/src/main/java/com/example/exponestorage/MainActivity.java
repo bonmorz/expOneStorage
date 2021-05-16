@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    private MyDatabaseHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,9 +75,14 @@ public class MainActivity extends AppCompatActivity {
                 textView2.setText("姓名：" + names_two);
                 textView3.setText("年龄：" + ages_two);
             }
-                                   }
+                                   });
+
+        //开始进入数据库部分
+        dbHelper = new MyDatabaseHelper(this,"studentStorage.db",null,1);
+        dbHelper.getWritableDatabase();
 
 
-        );
+
+
     }
 }
